@@ -1,9 +1,10 @@
+BIN := ./bin
 SRC := $(wildcard *.c)
-TAR := $(SRC:%.c=%)
+TAR := $(SRC:%.c=$(BIN)/%)
 
 all: $(TAR)
 
-%: %.c
+$(BIN)/%: %.c
 	$(CC) -o $@ $< -Wall
 
 .PHONY: clean
